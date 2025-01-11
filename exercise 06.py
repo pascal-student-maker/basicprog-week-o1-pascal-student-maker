@@ -1,13 +1,17 @@
 #exercise 06
-time =  int(input("Enter the amount of seconds:"))
-d = time // 86400
-h = time // 3600
-m= time // 60
-time = time % (24*3600)
-time %= 3600
-time %= 60
-s = time
-print(f" d:h:m:s -> {d:}:{h:}:{m:}:{s}") 
+import math
+def calculate_time(seconds):
+    
+    days = seconds // 86400
+    hours = math.ceil(seconds % 86400/ 3600)
+    minutes = math.ceil((seconds % 86400 ) % 3600/ 60 )
+    seconds = seconds % 60
+    
+    return days ,hours , minutes,seconds
+seconds = int(input(" Enter the amount of seconds:"))
+days,hours,minutes,seconds = calculate_time(seconds)
+print(f" d:h:m:s -> {days}:{hours}:{minutes}:{seconds}")
+
 
 
 
